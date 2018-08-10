@@ -22,8 +22,15 @@
         "url": "https://github.com/elben10/PersonalWeb.git"
     },
     "dependencies": {
+        "bootstrap": "4.1.1",
+        "jquery": "1.9.1",
+        "popper.js": "1.14.3"
     },
     "devDependencies": {
-        "gulp": "^3.9.1"
+        "gulp": "^3.9.1",
+        "gulp-clean-css": "3.9.4",
+        "gulp-rename": "1.3.0",
+        "gulp-sass": "4.0.1",
+        "gulp-uglify": "3.0.0"
     }
 }
