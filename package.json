@@ -1,0 +1,29 @@
+{
+    "title": "PersonalWeb",
+    "name": "PersonalWeb",
+    "version": "4.1.1",
+    "description": "Simple hugo template for my personal webpage",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "",
+    "bugs": {
+        "url": "https://github.com/elben10/PersonalWeb/issues"
+    },
+    "license": "MIT",
+    "author": "Jakob Jul ELben",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/elben10/PersonalWeb.git"
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+        "gulp": "^3.9.1"
+    }
+}
