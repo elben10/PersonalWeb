@@ -9,6 +9,7 @@ before_install:
   - npm install --global gulp
 
 install:
+  - npm install gulp
   - gulp
 
 script:
