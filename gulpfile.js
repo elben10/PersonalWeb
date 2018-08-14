@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var clean = require('gulp-clean');
 var cleanCSS = require('gulp-clean-css');
-var insert = require('gulp-insert');
 var rename = require("gulp-rename");
 var run = require('gulp-run');
 var runSequence = require('run-sequence');
