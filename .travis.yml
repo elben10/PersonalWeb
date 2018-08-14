@@ -2,12 +2,14 @@ sudo: required
 dist: trusty
 language: node_js
 
-install:
-  # install latest release version
+before_install:
+    # install latest release version
   - wget -qO- https://api.github.com/repos/gohugoio/hugo/releases/latest | sed -r -n '/browser_download_url/{/Linux-64bit.deb/{s@[^:]*:[[:space:]]*"([^"]*)".*@\1@g;p}}' | xargs wget
   - sudo dpkg -i hugo*.deb
-  - npm install
+  - npm install --global gulp
+
+install:
   - gulp
 
 script:
-  - "gulp test"
+  - gulp test
