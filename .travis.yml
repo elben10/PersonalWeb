@@ -1,10 +1,6 @@
 sudo: required
 dist: trusty
 language: node_js
-addons:
-  apt:
-    packages:
-      - hugo
 
 install:
   # install latest release version
