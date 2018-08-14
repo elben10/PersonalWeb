@@ -1,6 +1,10 @@
 var gulp = require('gulp');
+var clean = require('gulp-clean');
 var cleanCSS = require('gulp-clean-css');
+var insert = require('gulp-insert');
 var rename = require("gulp-rename");
+var run = require('gulp-run');
+var runSequence = require('run-sequence');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 
@@ -77,5 +81,53 @@ gulp.task('js:minify', function() {
 gulp.task('js', ['js:minify']);
 
 
+// hugo
+gulp.task('hugo:clean_new_site', function(){
+  return gulp.src('testsite')
+    .pipe(clean())
+})
+
+gulp.task('hugo:new_site', function(){
+  return run('hugo new site testsite').exec()
+})
+
+gulp.task('hugo:copy_theme', function(){
+  return gulp.src([
+    './**/*',
+    '!./testsite',
+    '!./testsite/*/**'
+  ])
+  .pipe(gulp.dest('./testsite/themes/PersonalWeb'))
+})
+
+gulp.task('hugo:add_theme_config', function(){
+  return run("echo 'theme = \"PersonalWeb\"' >> testsite/config.toml").exec()
+})
+
+gulp.task('hugo:build_test', function(){
+  return run('cd testsite; hugo').exec()
+})
+
+
+
+gulp.task('hugo', function(callback) {
+  runSequence(
+    'hugo:clean_new_site',
+    'hugo:new_site',
+    'hugo:copy_theme',
+    'hugo:add_theme_config',
+    'hugo:build_test',
+    'hugo:clean_new_site',
+    callback
+  );
+});
+
+gulp.task('hugo:move_theme', function(){
+  return run('cp -a  testsite/themes/PersonalWeb').exec()
+})
+
+
 // Default task
 gulp.task('default', ['css', 'js', 'vendor']);
+
+gulp.task('test', ['hugo'])
