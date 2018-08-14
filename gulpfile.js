@@ -127,6 +127,6 @@ gulp.task('hugo:move_theme', function(){
 
 
 // Default task
-gulp.task('default', ['css', 'js', 'vendor']);
+gulp.task('default', ['vendor']);
 
 gulp.task('test', ['hugo'])
